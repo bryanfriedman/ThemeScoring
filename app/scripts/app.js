@@ -20,7 +20,9 @@ angular
     'ngTouch',
     'xeditable',
     'ngStorage',
-    'themeScoringApi'
+    'themeScoringApi',
+    'ui.bootstrap',
+    'angular-confirm'
   ])
   .config(function ($routeProvider) {
     $routeProvider

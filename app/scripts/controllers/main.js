@@ -8,7 +8,7 @@
  * Controller of the themeScoringApp
  */
 angular.module('themeScoringApp')
-  .controller('MainCtrl', function ($scope, $localStorage, Criteria, Themes) {
+  .controller('MainCtrl', function ($scope, $localStorage, $confirm, Criteria, Themes) {
   	var themeScoringAppCtl = this;
   	$scope.$storage = $localStorage;
 
@@ -21,7 +21,7 @@ angular.module('themeScoringApp')
         if (data[0]) {
             $scope.$storage.criteriaList = data[0].value;
         } else {
-            $scope.$storage.criteriaList = [];
+            $scope.$storage.criteriaList = {};
         }
     };
 
@@ -73,7 +73,7 @@ angular.module('themeScoringApp')
     		}
     	}
 
-    	return score.toFixed(1);
+    	return Math.round(score);
     };
 
     $scope.$watch('$storage.criteriaList', function(newVal) {
